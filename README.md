@@ -4,4 +4,4 @@ Kelas       : C
 
 # Deskripsi Lembar Kerja App with Pandas
 # app.py (pandas input manual)
-# app_pandas (pandas input file csv)
+# app_pandas.py (pandas input file csv)
