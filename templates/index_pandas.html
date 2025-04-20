@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Manager + Rata-rata</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Upload CSV dan Hitung Rata-rata</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required>
+        <input type="text" name="kolom" placeholder="Filter kolom (opsional)">
+        <button type="submit">Proses</button>
+    </form>
+
+    {% if table %}
+    <h2>Isi CSV:</h2>
+    <div class="table-wrapper">
+        {{ table|safe }}
+    </div>
+    {% endif %}
+
+    {% if mean_result %}
+    <h2>Rata-rata Kolom Angka:</h2>
+    <ul>
+        {% for key, value in mean_result.items() %}
+        <li><strong>{{ key }}</strong>: {{ value|round(2) }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>

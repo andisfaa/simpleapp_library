@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Prediksi Nilai Mahasiswa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Nilai Akhir Mahasiswa</h1>
+    <form method="POST">
+        <input type="text" name="nama" placeholder="Nama Mahasiswa" required><br>
+        <input type="number" name="tugas" placeholder="Nilai Tugas" required><br>
+        <input type="number" name="kuis" placeholder="Nilai Kuis" required><br>
+        <input type="number" name="uts" placeholder="Nilai UTS" required><br>
+        <input type="number" name="uas" placeholder="Nilai UAS" required><br>
+        <button type="submit">Hitung</button>
+    </form>
+
+    {% if hasil %}
+    <h2>Hasil:</h2>
+    <p><strong>Nama:</strong> {{ hasil.nama }}</p>
+    <p><strong>Nilai Akhir:</strong> {{ hasil.nilai_akhir }}</p>
+    <p><strong>Nilai Huruf:</strong> {{ hasil.huruf }}</p>
+    {% endif %}
+</body>
+</html>
